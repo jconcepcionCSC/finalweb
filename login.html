@@ -50,11 +50,9 @@
     .hero::after {
       content: '';
       position: absolute;
-      top: -40%;
-      left: 50%;
+      top: -40%; left: 50%;
       transform: translateX(-50%);
-      width: 800px;
-      height: 800px;
+      width: 800px; height: 800px;
       background: radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
@@ -209,7 +207,7 @@
     }
 
     /* ══════════════════════════════════
-       PANEL DEPARTAMENTOS
+       PANEL DEPARTAMENTOS (Manual)
     ══════════════════════════════════ */
     .dept-panel {
       position: relative;
@@ -319,7 +317,7 @@
     }
 
     /* ══════════════════════════════════
-       SUBMENU OVERLAY
+       SUBMENU OVERLAY (Manual)
     ══════════════════════════════════ */
     .sub-panel {
       position: relative;
@@ -419,6 +417,198 @@
     .sub-option:hover .sub-option-label { color: var(--gold); }
 
     /* ══════════════════════════════════
+       TEST OVERLAY — GRID DE DEPARTAMENTOS
+    ══════════════════════════════════ */
+    .test-panel {
+      position: relative;
+      z-index: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 48px 44px;
+      width: min(720px, 95vw);
+      transform: translateY(30px) scale(0.97);
+      transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .overlay.open .test-panel { transform: translateY(0) scale(1); }
+
+    /* Barra superior color verde/teal para diferenciar de Manual */
+    .test-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1a6b5a, #2db89a, #1a6b5a);
+      border-radius: 8px 8px 0 0;
+    }
+
+    .test-panel-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .test-panel-header .icon {
+      width: 54px; height: 54px;
+      border: 1px solid #1a6b5a;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin: 0 auto 18px;
+      background: rgba(45,184,154,0.07);
+    }
+    .test-panel-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .test-panel-header p { font-size: 13px; color: var(--muted); }
+
+    /* Cards de departamento para Test — color teal */
+    .test-dept-card {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 18px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.3s, border-color 0.3s, transform 0.25s;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+    }
+    .test-dept-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: #2db89a;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .test-dept-card:hover {
+      background: rgba(45,184,154,0.07);
+      border-color: #1a6b5a;
+      transform: translateY(-2px);
+    }
+    .test-dept-card:hover::before { transform: scaleX(1); }
+
+    .test-dept-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: #2db89a;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .test-dept-name {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ══════════════════════════════════
+       TEST — PANEL DE PRUEBA DEL DEPT
+    ══════════════════════════════════ */
+    .test-dept-panel {
+      position: relative;
+      z-index: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 48px 44px;
+      width: min(560px, 92vw);
+      transform: translateY(30px) scale(0.97);
+      transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .overlay.open .test-dept-panel { transform: translateY(0) scale(1); }
+
+    .test-dept-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1a6b5a, #2db89a, #1a6b5a);
+      border-radius: 8px 8px 0 0;
+    }
+
+    .test-dept-panel-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .test-dept-panel-header .icon {
+      width: 54px; height: 54px;
+      border: 1px solid #1a6b5a;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin: 0 auto 16px;
+      background: rgba(45,184,154,0.07);
+    }
+    .test-dept-panel-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+    .test-dept-panel-header p { font-size: 13px; color: var(--muted); }
+
+    .test-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .test-option-btn {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      cursor: pointer;
+      background: rgba(255,255,255,0.02);
+      transition: background 0.3s, border-color 0.3s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+    }
+    .test-option-btn::after {
+      content: '→';
+      position: absolute;
+      right: 20px;
+      color: #2db89a;
+      font-size: 16px;
+      opacity: 0;
+      transition: opacity 0.25s, right 0.25s;
+    }
+    .test-option-btn:hover {
+      background: rgba(45,184,154,0.07);
+      border-color: #1a6b5a;
+      transform: translateX(4px);
+    }
+    .test-option-btn:hover::after { opacity: 1; right: 16px; }
+
+    .test-option-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .test-option-info {}
+    .test-option-label {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+    .test-option-desc {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* ══════════════════════════════════
        TICKET PANEL
     ══════════════════════════════════ */
     .ticket-panel {
@@ -461,7 +651,6 @@
     }
     .ticket-header p { font-size: 13px; color: var(--muted); }
 
-    /* Ticket ID badge */
     .ticket-id-badge {
       display: inline-flex;
       align-items: center;
@@ -478,7 +667,6 @@
     .ticket-id-badge span { width: 5px; height: 5px; background: #4a8fd4; border-radius: 50%; display: inline-block; animation: pulse 1.5s ease infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.7)} }
 
-    /* Form */
     .t-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
     .t-group { margin-bottom: 14px; }
     .t-group label {
@@ -489,9 +677,7 @@
       color: var(--muted);
       margin-bottom: 7px;
     }
-    .t-group input,
-    .t-group select,
-    .t-group textarea {
+    .t-group input, .t-group select, .t-group textarea {
       width: 100%;
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--border);
@@ -504,11 +690,8 @@
       transition: border-color 0.25s, background 0.25s;
       appearance: none;
     }
-    .t-group input::placeholder,
-    .t-group textarea::placeholder { color: var(--muted); }
-    .t-group input:focus,
-    .t-group select:focus,
-    .t-group textarea:focus {
+    .t-group input::placeholder, .t-group textarea::placeholder { color: var(--muted); }
+    .t-group input:focus, .t-group select:focus, .t-group textarea:focus {
       border-color: #2e5a8a;
       background: rgba(74,143,212,0.04);
     }
@@ -516,7 +699,6 @@
     .t-group select option { background: #13131a; }
     .t-group textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
 
-    /* Priority selector */
     .priority-group { margin-bottom: 20px; }
     .priority-group label {
       display: block;
@@ -550,7 +732,6 @@
     .priority-btn.medium.selected { --cr: 201,168,76; }
     .priority-btn.high.selected   { --cr: 224,90,90; }
 
-    /* Attachment area */
     .attach-area {
       border: 1px dashed var(--border);
       border-radius: 6px;
@@ -565,7 +746,6 @@
     .attach-area:hover { border-color: #2e5a8a; background: rgba(74,143,212,0.03); color: #4a8fd4; }
     .attach-area span { display: block; font-size: 20px; margin-bottom: 5px; }
 
-    /* Submit */
     .btn-ticket {
       width: 100%;
       padding: 14px;
@@ -584,12 +764,7 @@
     .btn-ticket:hover { opacity: 0.88; transform: translateY(-1px); }
     .btn-ticket:active { transform: translateY(0); }
 
-    /* Success state */
-    .ticket-success {
-      display: none;
-      text-align: center;
-      padding: 20px 0 10px;
-    }
+    .ticket-success { display: none; text-align: center; padding: 20px 0 10px; }
     .ticket-success .success-icon {
       width: 64px; height: 64px;
       border: 2px solid #43a870;
@@ -600,11 +775,7 @@
       background: rgba(67,168,112,0.08);
       animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1);
     }
-    .ticket-success h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px; font-weight: 400;
-      margin-bottom: 8px;
-    }
+    .ticket-success h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; margin-bottom: 8px; }
     .ticket-success p { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
     .ticket-success .ticket-ref {
       display: inline-block;
@@ -618,23 +789,18 @@
     }
     @keyframes popIn { from{opacity:0;transform:scale(0.5)} to{opacity:1;transform:scale(1)} }
 
-    /* ─── KEYFRAMES ─── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(22px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 640px) {
       .nav-strip { flex-wrap: wrap; border-radius: 8px; }
       .nav-item { min-width: 120px; padding: 24px 28px; border-right: none; border-bottom: 1px solid var(--border); }
       .nav-item:last-child { border-bottom: none; }
       .nav-item::before { top: auto; bottom: 0; height: 2px; }
-      .dept-grid { grid-template-columns: repeat(2, 1fr); }
+      .dept-grid, .test-dept-grid { grid-template-columns: repeat(2, 1fr); }
       .sub-options { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 400px) {
-      .dept-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -649,17 +815,16 @@
 
     <div class="badge"><span></span> Portal de Recursos <span></span></div>
     <h1 class="main-title">Credit Service <em>Center</em></h1>
-    <p class="subtitle">Selecciona una opcion</p>
+    <p class="subtitle">Selecciona una opción</p>
 
     <nav class="nav-strip" role="navigation" aria-label="Navegación principal">
 
-      <!-- MANUAL → abre grid de departamentos -->
       <div class="nav-item" id="btnManual" role="button" tabindex="0" aria-label="Acceder al Manual">
         <div class="nav-icon">📘</div>
         <span class="nav-label">Manual</span>
       </div>
 
-      <div class="nav-item" role="button" tabindex="0" aria-label="Test">
+      <div class="nav-item" id="btnTest" role="button" tabindex="0" aria-label="Test">
         <div class="nav-icon">ℹ️</div>
         <span class="nav-label">Test</span>
       </div>
@@ -677,64 +842,40 @@
 
     </nav>
 
-    <p class="hint">Haz clic en <strong>Manual</strong> para ver los departamentos</p>
+    <p class="hint">Haz clic en <strong>Manual</strong> o <strong>Test</strong> para ver los departamentos</p>
   </section>
 
-  <!-- ─── OVERLAY: GRID DE DEPARTAMENTOS ─── -->
+  <!-- ─── OVERLAY: GRID DE DEPARTAMENTOS (Manual) ─── -->
   <div class="overlay" id="deptOverlay" role="dialog" aria-modal="true" aria-label="Departamentos">
     <div class="overlay-bg" id="deptOverlayBg"></div>
-
     <div class="dept-panel">
       <button class="close-btn" id="deptCloseBtn" aria-label="Cerrar">✕</button>
-
       <div class="dept-panel-header">
         <div class="icon">📘</div>
         <h2>Manual — Departamentos</h2>
         <p>Selecciona un departamento para ver sus opciones</p>
       </div>
-
       <div class="dept-grid">
-        <div class="dept-card" data-dept="1">
-          <div class="dept-number">01</div>
-          <div class="dept-name">Departamento 1</div>
-        </div>
-        <div class="dept-card" data-dept="2">
-          <div class="dept-number">02</div>
-          <div class="dept-name">Departamento 2</div>
-        </div>
-        <div class="dept-card" data-dept="3">
-          <div class="dept-number">03</div>
-          <div class="dept-name">Departamento 3</div>
-        </div>
-        <div class="dept-card" data-dept="4">
-          <div class="dept-number">04</div>
-          <div class="dept-name">Departamento 4</div>
-        </div>
-        <div class="dept-card" data-dept="5">
-          <div class="dept-number">05</div>
-          <div class="dept-name">Departamento 5</div>
-        </div>
-        <div class="dept-card" data-dept="6">
-          <div class="dept-number">06</div>
-          <div class="dept-name">Departamento 6</div>
-        </div>
+        <div class="dept-card" data-dept="1"><div class="dept-number">01</div><div class="dept-name">Departamento 1</div></div>
+        <div class="dept-card" data-dept="2"><div class="dept-number">02</div><div class="dept-name">Departamento 2</div></div>
+        <div class="dept-card" data-dept="3"><div class="dept-number">03</div><div class="dept-name">Departamento 3</div></div>
+        <div class="dept-card" data-dept="4"><div class="dept-number">04</div><div class="dept-name">Departamento 4</div></div>
+        <div class="dept-card" data-dept="5"><div class="dept-number">05</div><div class="dept-name">Departamento 5</div></div>
+        <div class="dept-card" data-dept="6"><div class="dept-number">06</div><div class="dept-name">Departamento 6</div></div>
       </div>
     </div>
   </div>
 
-  <!-- ─── OVERLAY: SUBMENÚ DE OPCIONES ─── -->
+  <!-- ─── OVERLAY: SUBMENÚ DE OPCIONES (Manual) ─── -->
   <div class="overlay" id="subOverlay" role="dialog" aria-modal="true" aria-label="Opciones del departamento">
     <div class="overlay-bg" id="subOverlayBg"></div>
-
     <div class="sub-panel">
       <button class="back-btn" id="backBtn" aria-label="Volver">←</button>
       <button class="close-btn" id="subCloseBtn" aria-label="Cerrar">✕</button>
-
       <div class="sub-panel-header">
         <h2 id="subTitle">Departamento 1</h2>
         <p>Selecciona una opción</p>
       </div>
-
       <div class="sub-options">
         <div class="sub-option" id="optPDF">
           <span class="sub-option-icon">📄</span>
@@ -756,73 +897,102 @@
     </div>
   </div>
 
+  <!-- ─── OVERLAY: TEST — GRID DE DEPARTAMENTOS ─── -->
+  <div class="overlay" id="testOverlay" role="dialog" aria-modal="true" aria-label="Test - Departamentos">
+    <div class="overlay-bg" id="testOverlayBg"></div>
+    <div class="test-panel">
+      <button class="close-btn" id="testCloseBtn" aria-label="Cerrar">✕</button>
+      <div class="test-panel-header">
+        <div class="icon">ℹ️</div>
+        <h2>Test — Departamentos</h2>
+        <p>Selecciona un departamento para acceder a su prueba</p>
+      </div>
+      <div class="dept-grid">
+        <div class="test-dept-card" data-dept="1"><div class="test-dept-number">01</div><div class="test-dept-name">Departamento 1</div></div>
+        <div class="test-dept-card" data-dept="2"><div class="test-dept-number">02</div><div class="test-dept-name">Departamento 2</div></div>
+        <div class="test-dept-card" data-dept="3"><div class="test-dept-number">03</div><div class="test-dept-name">Departamento 3</div></div>
+        <div class="test-dept-card" data-dept="4"><div class="test-dept-number">04</div><div class="test-dept-name">Departamento 4</div></div>
+        <div class="test-dept-card" data-dept="5"><div class="test-dept-number">05</div><div class="test-dept-name">Departamento 5</div></div>
+        <div class="test-dept-card" data-dept="6"><div class="test-dept-number">06</div><div class="test-dept-name">Departamento 6</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── OVERLAY: TEST — PANEL DE PRUEBA DEL DEPARTAMENTO ─── -->
+  <div class="overlay" id="testDeptOverlay" role="dialog" aria-modal="true" aria-label="Prueba del departamento">
+    <div class="overlay-bg" id="testDeptOverlayBg"></div>
+    <div class="test-dept-panel">
+      <button class="back-btn" id="testBackBtn" aria-label="Volver">←</button>
+      <button class="close-btn" id="testDeptCloseBtn" aria-label="Cerrar">✕</button>
+      <div class="test-dept-panel-header">
+        <div class="icon">🧪</div>
+        <h2 id="testDeptTitle">Departamento 1</h2>
+        <p id="testDeptSubtitle">Prueba del departamento</p>
+      </div>
+      <div class="test-options">
+        <div class="test-option-btn" id="testOptIniciar">
+          <span class="test-option-icon">▶️</span>
+          <div class="test-option-info">
+            <div class="test-option-label">Iniciar Prueba</div>
+            <div class="test-option-desc">Comenzar el test evaluativo del departamento</div>
+          </div>
+        </div>
+        <div class="test-option-btn" id="testOptResultados">
+          <span class="test-option-icon">📊</span>
+          <div class="test-option-info">
+            <div class="test-option-label">Ver Resultados</div>
+            <div class="test-option-desc">Consultar resultados y estadísticas anteriores</div>
+          </div>
+        </div>
+        <div class="test-option-btn" id="testOptGuia">
+          <span class="test-option-icon">📖</span>
+          <div class="test-option-info">
+            <div class="test-option-label">Guía de Estudio</div>
+            <div class="test-option-desc">Material de apoyo para preparar la prueba</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ─── OVERLAY: TICKET IT ─── -->
   <div class="overlay" id="ticketOverlay" role="dialog" aria-modal="true" aria-label="Enviar Ticket">
     <div class="overlay-bg" id="ticketOverlayBg"></div>
-
     <div class="ticket-panel">
       <button class="close-btn" id="ticketCloseBtn" aria-label="Cerrar">✕</button>
-
-      <!-- FORM VIEW -->
       <div id="ticketFormView">
         <div class="ticket-header">
           <div class="icon">📍</div>
           <h2>Soporte IT</h2>
           <p>Completa el formulario y te contactaremos</p>
         </div>
-
         <div style="text-align:center; margin-bottom:28px;">
           <span class="ticket-id-badge"><span></span> Nuevo Ticket</span>
         </div>
-
         <div class="t-row">
-          <div class="t-group">
-            <label>Nombre</label>
-            <input type="text" placeholder="Tu nombre completo" />
-          </div>
-          <div class="t-group">
-            <label>Extensión / ID</label>
-            <input type="text" placeholder="Ej. EXT-204" />
-          </div>
+          <div class="t-group"><label>Nombre</label><input type="text" placeholder="Tu nombre completo" /></div>
+          <div class="t-group"><label>Extensión / ID</label><input type="text" placeholder="Ej. EXT-204" /></div>
         </div>
-
         <div class="t-row">
           <div class="t-group">
             <label>Departamento</label>
             <select>
               <option value="" disabled selected>Selecciona…</option>
-              <option>Departamento 1</option>
-              <option>Departamento 2</option>
-              <option>Departamento 3</option>
-              <option>Departamento 4</option>
-              <option>Departamento 5</option>
-              <option>Departamento 6</option>
+              <option>Departamento 1</option><option>Departamento 2</option><option>Departamento 3</option>
+              <option>Departamento 4</option><option>Departamento 5</option><option>Departamento 6</option>
             </select>
           </div>
           <div class="t-group">
             <label>Categoría</label>
             <select>
               <option value="" disabled selected>Selecciona…</option>
-              <option>Hardware</option>
-              <option>Software</option>
-              <option>Red / Conectividad</option>
-              <option>Accesos / Permisos</option>
-              <option>Correo electrónico</option>
-              <option>Otro</option>
+              <option>Hardware</option><option>Software</option><option>Red / Conectividad</option>
+              <option>Accesos / Permisos</option><option>Correo electrónico</option><option>Otro</option>
             </select>
           </div>
         </div>
-
-        <div class="t-group">
-          <label>Asunto</label>
-          <input type="text" placeholder="Describe brevemente el problema" />
-        </div>
-
-        <div class="t-group">
-          <label>Descripción detallada</label>
-          <textarea placeholder="¿Qué ocurrió? ¿Desde cuándo? ¿Pasos para reproducirlo?"></textarea>
-        </div>
-
+        <div class="t-group"><label>Asunto</label><input type="text" placeholder="Describe brevemente el problema" /></div>
+        <div class="t-group"><label>Descripción detallada</label><textarea placeholder="¿Qué ocurrió? ¿Desde cuándo? ¿Pasos para reproducirlo?"></textarea></div>
         <div class="priority-group">
           <label>Prioridad</label>
           <div class="priority-options">
@@ -831,17 +1001,13 @@
             <button class="priority-btn high" onclick="setPriority(this)">🔴 Alta</button>
           </div>
         </div>
-
         <div class="attach-area" onclick="document.getElementById('fileInput').click()">
           <span>📎</span>
           Adjuntar archivo (captura, log, etc.)
           <input type="file" id="fileInput" style="display:none" />
         </div>
-
         <button class="btn-ticket" id="submitTicketBtn">Enviar Ticket →</button>
       </div>
-
-      <!-- SUCCESS VIEW -->
       <div class="ticket-success" id="ticketSuccessView">
         <div class="success-icon">✓</div>
         <h3>¡Ticket Enviado!</h3>
@@ -853,7 +1019,20 @@
   </div>
 
   <script>
-    // ── Elementos ──
+    // ── Helpers abrir/cerrar ──
+    function openOverlay(overlay) {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeOverlay(overlay) {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeAll() {
+      [deptOverlay, subOverlay, testOverlay, testDeptOverlay, ticketOverlay].forEach(o => closeOverlay(o));
+    }
+
+    // ── Elementos Manual ──
     const btnManual     = document.getElementById('btnManual');
     const deptOverlay   = document.getElementById('deptOverlay');
     const deptCloseBtn  = document.getElementById('deptCloseBtn');
@@ -866,60 +1045,83 @@
     const backBtn       = document.getElementById('backBtn');
     const subTitle      = document.getElementById('subTitle');
 
-    // ── Helpers abrir/cerrar ──
-    function openOverlay(overlay) {
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeOverlay(overlay) {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    function closeAll() {
-      closeOverlay(deptOverlay);
-      closeOverlay(subOverlay);
-    }
-
-    // ── Manual → abre departamentos ──
     btnManual.addEventListener('click', () => openOverlay(deptOverlay));
-    btnManual.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') openOverlay(deptOverlay);
-    });
-
-    // ── Cerrar departamentos ──
+    btnManual.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openOverlay(deptOverlay); });
     deptCloseBtn.addEventListener('click', () => closeOverlay(deptOverlay));
     deptOverlayBg.addEventListener('click', () => closeOverlay(deptOverlay));
 
-    // ── Click en cuadrícula → abre submenú ──
     deptCards.forEach(card => {
       card.addEventListener('click', () => {
-        const n = card.dataset.dept;
-        subTitle.textContent = `Departamento ${n}`;
+        subTitle.textContent = `Departamento ${card.dataset.dept}`;
         closeOverlay(deptOverlay);
-        // pequeño delay para que la transición se vea limpia
         setTimeout(() => openOverlay(subOverlay), 200);
       });
     });
 
-    // ── Cerrar submenú ──
     subCloseBtn.addEventListener('click', closeAll);
     subOverlayBg.addEventListener('click', closeAll);
-
-    // ── Botón volver ──
     backBtn.addEventListener('click', () => {
       closeOverlay(subOverlay);
       setTimeout(() => openOverlay(deptOverlay), 200);
     });
 
-    // ── Ticket overlay ──
-    const btnTicket       = document.getElementById('btnTicket');
-    const ticketOverlay   = document.getElementById('ticketOverlay');
-    const ticketCloseBtn  = document.getElementById('ticketCloseBtn');
-    const ticketOverlayBg = document.getElementById('ticketOverlayBg');
-    const submitTicketBtn = document.getElementById('submitTicketBtn');
-    const ticketFormView  = document.getElementById('ticketFormView');
+    // ── Elementos Test ──
+    const btnTest           = document.getElementById('btnTest');
+    const testOverlay       = document.getElementById('testOverlay');
+    const testCloseBtn      = document.getElementById('testCloseBtn');
+    const testOverlayBg     = document.getElementById('testOverlayBg');
+    const testDeptCards     = document.querySelectorAll('.test-dept-card');
+
+    const testDeptOverlay   = document.getElementById('testDeptOverlay');
+    const testDeptCloseBtn  = document.getElementById('testDeptCloseBtn');
+    const testDeptOverlayBg = document.getElementById('testDeptOverlayBg');
+    const testBackBtn       = document.getElementById('testBackBtn');
+    const testDeptTitle     = document.getElementById('testDeptTitle');
+    const testDeptSubtitle  = document.getElementById('testDeptSubtitle');
+
+    btnTest.addEventListener('click', () => openOverlay(testOverlay));
+    btnTest.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openOverlay(testOverlay); });
+    testCloseBtn.addEventListener('click', () => closeOverlay(testOverlay));
+    testOverlayBg.addEventListener('click', () => closeOverlay(testOverlay));
+
+    testDeptCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const n = card.dataset.dept;
+        testDeptTitle.textContent = `Departamento ${n}`;
+        testDeptSubtitle.textContent = `Prueba del Departamento ${n}`;
+        closeOverlay(testOverlay);
+        setTimeout(() => openOverlay(testDeptOverlay), 200);
+      });
+    });
+
+    testDeptCloseBtn.addEventListener('click', closeAll);
+    testDeptOverlayBg.addEventListener('click', closeAll);
+    testBackBtn.addEventListener('click', () => {
+      closeOverlay(testDeptOverlay);
+      setTimeout(() => openOverlay(testOverlay), 200);
+    });
+
+    // Acciones opciones de prueba (personaliza con tus URLs)
+    document.getElementById('testOptIniciar').addEventListener('click', () => {
+      alert('Iniciando prueba — ' + testDeptTitle.textContent);
+      // window.location.href = `test_dept_${n}.html`;
+    });
+    document.getElementById('testOptResultados').addEventListener('click', () => {
+      alert('Ver resultados — ' + testDeptTitle.textContent);
+    });
+    document.getElementById('testOptGuia').addEventListener('click', () => {
+      alert('Guía de estudio — ' + testDeptTitle.textContent);
+    });
+
+    // ── Ticket ──
+    const btnTicket         = document.getElementById('btnTicket');
+    const ticketOverlay     = document.getElementById('ticketOverlay');
+    const ticketCloseBtn    = document.getElementById('ticketCloseBtn');
+    const ticketOverlayBg   = document.getElementById('ticketOverlayBg');
+    const submitTicketBtn   = document.getElementById('submitTicketBtn');
+    const ticketFormView    = document.getElementById('ticketFormView');
     const ticketSuccessView = document.getElementById('ticketSuccessView');
-    const ticketRefNum    = document.getElementById('ticketRefNum');
+    const ticketRefNum      = document.getElementById('ticketRefNum');
 
     btnTicket.addEventListener('click', () => {
       ticketFormView.style.display = 'block';
@@ -947,35 +1149,21 @@
       btn.classList.add('selected');
     }
 
-    // ── Escape también cierra ticket ──
+    // ── Acciones submenú Manual ──
+    document.getElementById('optPDF').addEventListener('click', () => { alert('Abrir PDF — ' + subTitle.textContent); });
+    document.getElementById('optEjemplo').addEventListener('click', () => { alert('Abrir Ejemplo — ' + subTitle.textContent); });
+    document.getElementById('optOpcion3').addEventListener('click', () => { alert('Opción 3 — ' + subTitle.textContent); });
+    document.getElementById('optFlowchart').addEventListener('click', () => { window.location.href = 'flujograma.html'; });
+
+    // ── Escape cierra todo ──
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
-        if (subOverlay.classList.contains('open')) closeOverlay(subOverlay);
+        if (testDeptOverlay.classList.contains('open')) closeOverlay(testDeptOverlay);
+        else if (testOverlay.classList.contains('open')) closeOverlay(testOverlay);
+        else if (subOverlay.classList.contains('open')) closeOverlay(subOverlay);
         else if (deptOverlay.classList.contains('open')) closeOverlay(deptOverlay);
         else if (ticketOverlay.classList.contains('open')) closeOverlay(ticketOverlay);
       }
-    });
-
-    // ── Acciones de las opciones del submenú (personaliza aquí) ──
-    document.getElementById('optPDF').addEventListener('click', () => {
-      alert('Abrir PDF — ' + subTitle.textContent);
-    });
-    document.getElementById('optEjemplo').addEventListener('click', () => {
-      alert('Abrir Ejemplo — ' + subTitle.textContent);
-    });
-    document.getElementById('optOpcion3').addEventListener('click', () => {
-      alert('Opción 3 — ' + subTitle.textContent);
-    });
-    document.getElementById('optFlowchart').addEventListener('click', () => {
-      window.location.href = 'flujograma.html';
-    });
-
-    // ── Ripple en otros nav items ──
-    document.querySelectorAll('.nav-item:not(#btnManual):not(#btnTicket)').forEach(item => {
-      item.addEventListener('click', () => {
-        item.classList.add('active');
-        setTimeout(() => item.classList.remove('active'), 600);
-      });
     });
   </script>
 </body>
